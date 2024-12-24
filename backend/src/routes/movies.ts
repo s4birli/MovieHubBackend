@@ -40,6 +40,8 @@ router.get("/search", async (req: Request, res: Response): Promise<void> => {
                 endYear: item.endYear?.toString(),
                 category: item.titleType,
                 poster: item.image?.url || null,
+                rating: item.ratings?.rating || null,
+                genre: item.genres?.join(", ") || null,
             }));
 
         res.json(processedResults);
